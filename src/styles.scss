@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.w-100{
+    width: 100%;
+}
+
+.pt-2{
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+}
+
+.center{
+    text-align: center;
+}
+
+.table-button{
+    width: 120px;
+    margin-right: 10px !important;
+}
+
+.inactive>mat-cell{
+    color: #9abd97db !important;
+}

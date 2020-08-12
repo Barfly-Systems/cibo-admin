@@ -1,0 +1,5 @@
+<div class="image-selector-container">
+    <div class="image-container" *ngFor="let image of imageList">
+        <img src="assets/img/{{image.imagePath}}" (click)="selectImage(image)">
+    </div>
+</div>

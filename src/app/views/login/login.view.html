@@ -1,0 +1,11 @@
+<div class="login-form-container">
+    <div class="login-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Organisation Number</mat-label>
+            <input class="w-100" matInput placeholder="1000000" [(ngModel)]="credentials.organisationId">
+        </mat-form-field>
+        <div class="button-container w-100">
+            <button mat-button color="primary" (click)="attemptLogin()">Login</button>
+        </div>
+    </div>    
+</div>

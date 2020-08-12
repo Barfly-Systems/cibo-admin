@@ -1,0 +1,33 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Product ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="productName">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.productName}} </mat-cell>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="productTypeName">
+      <mat-header-cell *matHeaderCellDef> Product Type </mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.productTypeName}}</mat-cell>
+    </ng-container>  
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-flat-button color="primary" class="table-button">Edit</button>
+            <button mat-flat-button color="{{element.isActive ? 'primary' : 'accent'}}" class="table-button" (click)="changeProductActivationStatus(element)">{{element.isActive ? 'Deactivate' : 'Activate'}}</button>
+        </mat-cell>
+      </ng-container>  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="{{row.isActive ? '' : 'inactive'}}"></mat-row>
+  </mat-table>
+  <div class="w-100 pt-2">
+      <button class="add-button" mat-mini-fab (click)="null">
+          <mat-icon>add</mat-icon>
+      </button>
+  </div>

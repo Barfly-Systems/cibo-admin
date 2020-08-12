@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -66,7 +67,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "CiboAdmin:build"
+            "browserTarget": "CiboAdmin:build",
+            "sslKey": "/Certificates/localhost.key",
+            "sslCert": "/Certificates/localhost.crt",
+            "ssl": true
           },
           "configurations": {
             "production": {
@@ -92,6 +96,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +128,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "CiboAdmin"
 }

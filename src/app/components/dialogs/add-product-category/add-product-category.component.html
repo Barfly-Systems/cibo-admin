@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Enter the New Product Category's Details</h2>
+<mat-dialog-content class="mat-typography" *ngIf="formStep == 1">
+    <mat-form-field class="w-100">
+        <mat-label>Category Name</mat-label>
+        <input matInput placeholder="Wine" [(ngModel)]="newCategory.categoryName" name="ignoreAC" autocomplete="disabled">
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-content class="mat-typography center" *ngIf="formStep == 2">
+    <div class="image-container" *ngIf="selectedImage">
+        <img src="assets/img/{{selectedImage.imagePath}}" />
+    </div>
+    <button mat-button color="warning" (click)="openImageSelector()">{{selectedImage ? 'Change Image' : 'Select an Image'}}</button>
+</mat-dialog-content>
+<mat-dialog-actions align="end" *ngIf="formStep != 3">
+    <button mat-button (click)="formStep = formStep - 1">Back</button>
+    <button mat-button (click)="formStep = formStep + 1">Next</button>
+</mat-dialog-actions>
+<mat-dialog-actions align="end" *ngIf="formStep == 3">
+    <button mat-button mat-dialog-close>Back</button>
+    <div></div>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button cdkFocusInitial (click)="addProductCategory()" [disabled]="!newCategory.categoryName">Save</button>
+</mat-dialog-actions>

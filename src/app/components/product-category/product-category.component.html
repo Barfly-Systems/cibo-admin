@@ -1,0 +1,26 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Category ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="categoryName">
+      <mat-header-cell *matHeaderCellDef> Category Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.categoryName}} </mat-cell>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="imagePath">
+      <mat-header-cell *matHeaderCellDef> Image Path </mat-header-cell>
+      <mat-cell *matCellDef="let element" (click)="editProductCategory(element)"><mat-icon color="primary">edit</mat-icon> <span color="primary" (click)="editImage(element.imagePath)">Edit Image</span></mat-cell>
+    </ng-container>  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <div class="w-100 pt-2">
+      <button class="add-button" mat-mini-fab (click)="addProductCategory()">
+          <mat-icon>add</mat-icon>
+      </button>
+  </div>
