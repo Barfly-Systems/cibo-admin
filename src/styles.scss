@@ -24,3 +24,58 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .inactive>mat-cell{
     color: #9abd97db !important;
 }
+
+.finger{
+    cursor: pointer;
+}
+
+.add-button-right{
+    float: right;
+    margin: 15px !important;
+}
+
+.col-3{
+    width: 33.33%;
+    display: inline-block;
+}
+
+.col-3>mat-form-field{
+    width: 95%;
+}
+
+.col-10{
+    width: 10%;
+    display: inline-block;
+}
+
+mat-checkbox.margin{
+    margin: 0 10px;
+}
+
+.flex-section{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+
+.mat-dialog-container > * {
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-dialog-content {
+    max-height: inherit !important;
+}
+
+.mat-dialog-actions {
+    display: block !important;
+    flex-grow: inherit;
+    flex-shrink: inherit;
+    padding: 12px 0 0 !important;
+
+    &:last-child {
+        margin-bottom: 0 !important;
+    }
+}

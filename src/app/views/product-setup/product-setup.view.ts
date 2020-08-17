@@ -11,7 +11,6 @@ export class ProductSetupView implements OnInit {
   constructor(private state: StateService) { }
 
   ngOnInit(): void {
-    console.log(this.state.getOrganisationId);
   }
 
 }

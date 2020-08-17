@@ -1,9 +1,11 @@
 export interface ProductCategory{
+    id?: number;
     organisation_ID: number,
     categoryName: string,
     isActive: boolean,
-    backgroundImage_ID: number,
-    textColour: string,
+    isArchived?: boolean;
     createdOn: Date,
-    editedOn: Date
+    editedOn: Date,
+    backgroundImage_ID: number,
+    textColour: string
 }

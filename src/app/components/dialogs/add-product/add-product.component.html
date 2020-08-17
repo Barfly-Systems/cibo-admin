@@ -1,0 +1,86 @@
+<h2 mat-dialog-title>Enter New Product Details</h2>
+<mat-dialog-content class="mat-typography" *ngIf="formStep == 1">
+    <div class="row w-100">
+        <div class="col-3">
+            <mat-form-field>
+                <mat-label>Product Name</mat-label>
+                <input matInput placeholder="ACME Lager" [(ngModel)]="newProduct.name" name="ignoreAC" autocomplete="disabled">
+            </mat-form-field>
+        </div>
+        <div class="col-3">
+            <mat-form-field>
+                <mat-label>Product Type</mat-label>
+                <mat-select>
+                    <mat-option value="1">Beer</mat-option>
+                    <mat-option value="2">Red Wine</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-3">
+            <mat-form-field>
+                <mat-label>Product Category</mat-label>
+                <mat-select>
+                    <mat-option value="1">Beer and Wine</mat-option>
+                    <mat-option value="2">Spirits</mat-option>
+                    <mat-option value="3">Soft Drinks</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row w-100">
+        <span>Allergens Contained</span>
+            <div class="row w-100">
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>                
+            </div>
+            <div class="row w-100">
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+                <div class="col-10">
+                    <mat-checkbox class="margin">Celery</mat-checkbox>
+                </div>
+            </div>        
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end" *ngIf="formStep != 3">
+    <button mat-button (click)="formStep = formStep - 1">Back</button>
+    <button mat-button (click)="formStep = formStep + 1">Next</button>
+</mat-dialog-actions>
+<mat-dialog-actions align="end" *ngIf="formStep == 3">
+    <button mat-button mat-dialog-close>Back</button>
+    <div></div>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button cdkFocusInitial (click)="addProduct()" [disabled]="!newProduct.name">Save</button>
+</mat-dialog-actions>

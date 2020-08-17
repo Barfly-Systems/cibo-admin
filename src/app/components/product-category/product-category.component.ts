@@ -4,7 +4,7 @@ import { StateService } from 'src/app/services/state.service';
 import { DialogService } from './../../services/dialog.service';
 
 import { GetProductCategories_Result } from '../../models/get-product-categories-result.model';
-
+import { UpsertProductCategoryViewModel } from '../../models/upsert-product-category.view-model';
 
 export interface PeriodicElement {
   name: string;
@@ -46,17 +46,27 @@ export class ProductCategoryComponent implements OnInit {
   }
 
   addProductCategory = () => {
+    let newCategory: UpsertProductCategoryViewModel;
     this.dialogs.openDialog(false, null).subscribe(data => {
-      this.api.insertProductCategory(data).subscribe(innerData => {
+      newCategory = {
+        ProductCategory: data,
+        EditMode: false
+      }
+      this.api.upsertProductCategory(newCategory).subscribe(innerData => {
         this.getProductCategories();
       })
     })
   }
 
   editProductCategory = (productCategory: GetProductCategories_Result) => {
+    let editedCategory: UpsertProductCategoryViewModel;
     this.dialogs.openDialog(true, productCategory).subscribe(data => {
-      console.log(data);
-      this.api.insertProductCategory(data).subscribe(innerData => {
+      editedCategory = {
+        ProductCategory: data,
+        EditMode: true
+        // CurrentImageId:
+      }
+      this.api.upsertProductCategory(editedCategory).subscribe(innerData => {
         this.getProductCategories();
       })
     })

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 
+import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { LoginComponent } from './views/login/login.view';
 import { ProductSetupView } from './views/product-setup/product-setup.view';
@@ -25,6 +28,7 @@ import { ProductCategoryComponent } from './components/product-category/product-
 import { AddProductCategoryComponent } from './components/dialogs/add-product-category/add-product-category.component';
 import { ImageSelectorComponent } from './components/dialogs/image-selector/image-selector.component';
 import { ProductsAndPricingComponent } from './components/products-and-pricing/products-and-pricing.component';
+import { AddProductComponent } from './components/dialogs/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,8 @@ import { ProductsAndPricingComponent } from './components/products-and-pricing/p
     ProductCategoryComponent,
     AddProductCategoryComponent,
     ImageSelectorComponent,
-    ProductsAndPricingComponent
+    ProductsAndPricingComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -51,10 +56,13 @@ import { ProductsAndPricingComponent } from './components/products-and-pricing/p
     MatIconModule,
     MatDialogModule,
     MatStepperModule,
-    MatButtonToggleModule    
+    MatButtonToggleModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [
-    CookieService
+    CookieService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {panelClass: 'mat-dialog-override'}}
   ],
   bootstrap: [AppComponent]
 })

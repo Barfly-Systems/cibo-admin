@@ -20,7 +20,6 @@ export class ImageSelectorComponent implements OnInit {
 
   loadImages = () => {
     this.api.getProductCategoryImages().subscribe(data => {
-      console.log(data);
       this.imageList = data;
     })
   }

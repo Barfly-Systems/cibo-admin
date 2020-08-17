@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 import { GetProductCategories_Result } from '../models/get-product-categories-result.model';
 import { GetAllImages_Result } from '../models/get-all-images-result.model';
-import { ProductCategory } from "../models/product-category.model";
+import { UpsertProductCategoryViewModel } from '../models/upsert-product-category.view-model';
 import { StatusUpdate } from '../models/status-update.model';
 
 
@@ -29,11 +29,13 @@ export class ApiService {
 
   getProductCategories = (organisationId: number) => {return this.http.get<GetProductCategories_Result[]>(`${this._isDevMode ? this._devApiUrl : this._apiUrl}/product/getCategories/${organisationId}/false/false`)};
 
-  insertProductCategory = (newCategory: ProductCategory) => {return this.http.post(`${this._isDevMode ? this._devApiUrl : this._apiUrl}/product/insertProductCategory`, newCategory)};
+  upsertProductCategory = (newCategory: UpsertProductCategoryViewModel) => {console.log(newCategory); return this.http.post(`${this._isDevMode ? this._devApiUrl : this._apiUrl}/product/upsertProductCategory`, newCategory)};
 
   getProductCategoryImages = () => {return this.http.get<GetAllImages_Result[]>(`${this._isDevMode ? this._devApiUrl : this._apiUrl}/product/getProductCategoryImages`)};
 
-  getAllProducts = (organisationId: number) => {return this.http.get<GetAllImages_Result[]>(`${this._isDevMode ? this._devApiUrl : this._apiUrl}/product/getAllProducts/${organisationId}/true`)};
+  getProductCategoryImage = (imageId: number) => {return this.http.get<GetAllImages_Result>(`${this._isDevMode ? this._devApiUrl : this._apiUrl}/product/getProductCategoryImage/${imageId}`)};
+
+  getAllProducts = (organisationId: number, productCategoryId: number) => {return this.http.get<GetAllImages_Result[]>(`${this._isDevMode ? this._devApiUrl : this._apiUrl}/product/getAllProducts/${organisationId}/true/${productCategoryId}`)};
 
   updateProductStatus = (statusUpdate: StatusUpdate) => {return this.http.put(`${this._isDevMode ? this._devApiUrl : this._apiUrl}/product/updateProductStatus`, statusUpdate)};
 }
